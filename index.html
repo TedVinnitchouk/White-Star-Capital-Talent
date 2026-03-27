@@ -620,14 +620,75 @@
 
   @media (max-width: 768px) {
     html, body { overflow-y: auto; overflow-x: hidden; }
-    .split { position: relative; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; min-height: 100vh; }
-    .split::after { top: 50%; bottom: auto; left: 10%; right: 10%; width: auto; height: 1px; transform: none; background: linear-gradient(to right, transparent, rgba(201,168,76,0.25) 30%, rgba(201,168,76,0.25) 70%, transparent); }
-    .panel { min-height: 50vh; }
-    .panel-heading { font-size: 2.2rem; }
-    .modal-panel { margin: 16px; max-height: calc(100vh - 32px); }
-    .modal-header, .modal-body { padding-left: 22px; padding-right: 22px; }
-    .form-grid { grid-template-columns: 1fr; }
+
+    /* Stack panels vertically */
+    .split {
+      position: relative;
+      grid-template-columns: 1fr;
+      min-height: 100vh;
+    }
+
+    /* Hide vertical divider, show horizontal */
+    .divider-line {
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 50%;
+      width: auto;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      transform: none;
+    }
+
+    .divider-line::before,
+    .divider-line::after { display: none; }
+
+    .panel { min-height: 50vh; padding: 60px 24px; }
+
+    /* Scale down text */
+    .panel-eyebrow {
+      font-size: 22px;
+      width: auto;
+      padding: 10px 24px;
+      white-space: normal;
+    }
+
+    .panel-heading { font-size: 2.6rem; min-height: unset; }
+
+    .panel-desc { font-size: 16px; }
+
+    .panel-cta {
+      font-size: 16px;
+      width: 100%;
+      max-width: 320px;
+      padding: 14px 0;
+    }
+
+    /* Logo */
+    .header { padding: 16px 24px; }
+    .logo-img { height: 20px; }
+
+    /* Modals */
+    .modal-panel {
+      margin: 0;
+      max-width: 100%;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+
+    .modal-header { padding: 24px 20px 18px; }
+    .modal-body { padding: 20px 20px 36px; }
+    .modal-title { font-size: 2.4rem; }
+    .modal-eyebrow { font-size: 14px; }
+
+    .form-grid { grid-template-columns: 1fr; gap: 16px; }
     .form-group.full { grid-column: 1; }
+    .form-label { font-size: 14px; }
+    .form-input, .form-select, .form-textarea { font-size: 16px; padding: 12px 14px; }
+    .form-submit { font-size: 16px; padding: 15px; }
+
+    /* Footer */
+    .footer-tag { display: none; }
   }
 </style>
 </head>
